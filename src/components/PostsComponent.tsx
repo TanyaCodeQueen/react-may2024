@@ -1,6 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ApiService} from "../services/api.service";
 import {IPostModel} from "../model/IPostModel";
+import PostComponent from "./PostComponent";
 
 const PostsComponent: FC = () => {
 
@@ -10,7 +11,9 @@ const PostsComponent: FC = () => {
     }, []);
     return (
         <div>
-            {posts.map(post => <div key={post.id}>{post.title}{post.body} <hr/></div>)}
+            {posts.map(post => <div key={post.id}>
+                <PostComponent post={post}/>
+            </div>)}
         </div>
     );
 };

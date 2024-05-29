@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ApiService} from "../services/api.service";
 import {ICommentModel} from "../model/ICommentModel";
-
+import CommentComponent from "./CommentComponent";
 const CommentsComponent: FC = () => {
 
     const [comments, setComment] = useState<ICommentModel[]>([]);
@@ -10,7 +10,7 @@ const CommentsComponent: FC = () => {
     }, []);
     return (
         <div>
-            {comments.map(comment => <div key={comment.id}>{comment.name}{comment.email}{comment.body} <hr/></div>)}
+            {comments.map(comment => <div key={comment.id}> <CommentComponent comment={comment}/></div>)}
         </div>
     );
 };
