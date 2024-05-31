@@ -1,18 +1,19 @@
-import React, {FC, useEffect, useState} from 'react';
-import {ApiService} from "../services/api.service";
-import {ICommentModel} from "../model/ICommentModel";
-import CommentComponent from "./CommentComponent";
-const CommentsComponent: FC = () => {
+import React, { FC } from 'react';
+import { ICommentModel } from '../model/ICommentModel';
 
-    const [comments, setComment] = useState<ICommentModel[]>([]);
-    useEffect(() => {
-        ApiService.getAllComments().then(value => setComment(value.data));
-    }, []);
+interface IProps {
+    comment: ICommentModel;
+}
+
+const CommentComponent: FC<IProps> = ({ comment }) => {
+    console.log('Rendering comment:', comment); // Add console log
+
     return (
-        <div>
-            {comments.map(comment => <div key={comment.id}> <CommentComponent comment={comment}/></div>)}
+        <div style={{ background: 'lightgray' }}> {/* Add background */}
+            {comment.id}: {comment.name} {comment.email} {comment.body}
+            <hr />
         </div>
     );
 };
 
-export default CommentsComponent;
+export default CommentComponent;

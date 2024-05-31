@@ -1,5 +1,6 @@
 export interface IPostModel {
-    id:number,
-    title:number,
+    userId:string,
+    id:string,
+    title:string,
     body:string
 }
