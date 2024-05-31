@@ -24,7 +24,7 @@ export const routerConfig = createBrowserRouter([
                 path: 'posts',
                 element: <PostsPage/>,
                 children: [
-                    { path: "comments/:id", element: <CommentsOfPostPage/> }
+                    { path: ':id', element: <CommentsOfPostPage/> }
                 ]
             },
         ]
